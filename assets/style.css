@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+  }
+
+ header {
+    padding: 40px;
+    text-align: center;
+    color: rgb(51, 13, 102);
+  }
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .gameplay {
+    padding: 40px;
+    text-align: center;
+    color: rgb(51, 13, 102);
+  }
+
+ul {
+list-style: none;
+  }
+
