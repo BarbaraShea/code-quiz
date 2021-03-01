@@ -11,11 +11,12 @@
 <body>
     <section class = "container">
         <div id = "timer">Timer</div>
-        <div id = "highscores">Highscores</div>
+        <div id = "highscores"></div>
+        <div id = "score-display">0</div>
     </section>
     <header> Coding Quiz Challenge </header>
     <section class = "gameplay">
-        <div id="showOrHide">
+        <div id="hideStartBtn">
             <button>Start Game!</button>
         </div >
         <div id = "container">
@@ -33,6 +34,12 @@
                 <p class="choice-text" data-number="3"></p>
             </div>
         </div>
+        <div id=displayScore></div>
+        <form method="POST">
+            <label for="intitials">Please enter your initials:</label>
+            <input type="text" name="inititals" id="initials" placeholder="Initials">
+            <button type="submit" class="submit">Submit Score</button>
+        </form>
     </section>
     <script src="assets/script.js"></script>
 </body>

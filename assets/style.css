@@ -21,7 +21,7 @@
   }
 
 #container {
-  display: flex;
+  display: none;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -50,4 +50,8 @@
 
 .choice-text {
   width: 100%;
+}
+
+form {
+  display:none;
 }
