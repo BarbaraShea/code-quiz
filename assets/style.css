@@ -20,7 +20,34 @@
     color: rgb(51, 13, 102);
   }
 
-ul {
-list-style: none;
-  }
+#container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
+.choice-container {
+  display: flex;
+  text-align: center;
+  margin-bottom: 1px;
+  width: 70%;
+  font-size: large;
+  border: solid 0.5px navy;
+  background-color: white;
+  padding: 0%;
+}
+
+.choice-container:hover {
+  cursor: pointer;
+  box-shadow:20px 20px 50px grey;
+}
+
+.prefix {
+  background-color: rgb(124, 205, 216);
+  color: aliceblue;
+  margin: 0px;
+}
+
+.choice-text {
+  width: 100%;
+}
