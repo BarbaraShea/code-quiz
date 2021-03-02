@@ -99,7 +99,7 @@ console.log(questionsArray[0]);
 //function to hide button on game play
 function showOrHideDiv() {
   var v = document.getElementById("hideStartBtn");
-  if (v.style.display === "none") {
+  if (v.style.display == "none") {
      v.style.display = "block";
   } else {
      v.style.display = "none";
@@ -108,7 +108,7 @@ function showOrHideDiv() {
 // function to show or hide form
 function showOrHideForm() {
   var v = document.querySelector("form");
-  if (v.style.display === "none") {
+  if (v.style.display == "none") {
      v.style.display = "block";
   } else {
      v.style.display = "none";
@@ -118,12 +118,14 @@ function showOrHideForm() {
 //function show or hide container
 function showOrHideQuestions() {
 var v = document.getElementById("container");
-if (v.style.display === "none") {
-   v.style.display = "block";
+console.log(v);
+if (v.style.display == "none") {
+   v.style.display = "flex";
 } else {
    v.style.display = "none";
 }
 }
+
 //timer
 var timeLeft = 120;
 var setTime = function() {
@@ -148,12 +150,11 @@ startGame.addEventListener("click", setTime);
 
 startGame.addEventListener("click", runQuestions);
 
-
+//hides form, hides questions, shows highscores
 function endGame (){
   highScores();
   showOrHideForm();  
-  // clearInterval(timerInterval);
-
+  showOrHideQuestions();
   showScore.textContent=("Your score is: " + score);
 }
 
@@ -161,37 +162,24 @@ function endGame (){
 function highScores(){
   var setScore = score;
   var highScores = JSON.parse(localStorage.getItem("highScores"));
-  if (!highScores){
-    highScores = [];
-  }
+      if (!highScores){
+        highScores = [];
+      }
   
   submitEl.addEventListener("click", function(event){
-    event.preventDefault();
-    var initials = document.querySelector("#initials").value;
+      event.preventDefault();
+      var initials = document.querySelector("#initials").value;
     
-    var currentScore = {
-      score: setScore,
-      initials: initials,
-    }
+      var currentScore = {
+        score: setScore,
+        initials: initials,
+      }
   
-    highScores.push(currentScore);
+      highScores.push(currentScore);
     
-    localStorage.setItem("highScores", JSON.stringify(highScores));
+      localStorage.setItem("highScores", JSON.stringify(highScores));
 
-    var x = document.querySelector("form");
-    if (x.style.display === "none") {
-     x.style.display = "block";
-  } else {
-     x.style.display = "none";
-  }
-
-  var x = showScore;
-  if (x.style.display === "none") {
-   x.style.display = "block";
-} else {
-   x.style.display = "none";
-}
-    showHighscores();
+      showHighscores();
   })
 
 }
@@ -199,6 +187,8 @@ function highScores(){
 //show high scores
 
 function showHighscores (){
+  showOrHideForm();
+  displayScore.createElement("ul");
 
 }
 
@@ -213,6 +203,7 @@ function clearHighscores (){
 function runQuestions(){
       //hide start button
       showOrHideDiv();
+      showOrHideQuestions();
 
       questionCounter = 0;
       score = 0;
@@ -226,9 +217,11 @@ function runQuestions(){
 // populates new question each time
 function getNewQuestion(){
 
-  if(availableQuestions.length === 0){
+  if(availableQuestions.length == 0){
 
-  endGame();  
+  endGame();
+  showOrHideForm();
+  
 
   }
 

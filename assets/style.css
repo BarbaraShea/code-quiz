@@ -6,6 +6,7 @@
     padding: 40px;
     text-align: center;
     color: rgb(51, 13, 102);
+    font-size: 50px;
   }
 
 .container {
@@ -21,7 +22,7 @@
   }
 
 #container {
-  display: none;
+  display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -29,12 +30,15 @@
 .choice-container {
   display: flex;
   text-align: center;
+  color:aliceblue;
   margin-bottom: 1px;
   width: 70%;
   font-size: large;
   border: solid 0.5px navy;
-  background-color: white;
+  background-color: rgb(31, 113, 146);
   padding: 0%;
+  margin: 3px;
+  border-radius: 25px;
 }
 
 .choice-container:hover {
@@ -43,15 +47,21 @@
 }
 
 .prefix {
-  background-color: rgb(124, 205, 216);
   color: aliceblue;
-  margin: 0px;
+  margin: 5px;
+  padding-left: px;
+  border-radius: 50px;
 }
 
 .choice-text {
   width: 100%;
+  height: 100%;
 }
 
 form {
   display:none;
+}
+
+button {
+  margin: 5px;
 }
