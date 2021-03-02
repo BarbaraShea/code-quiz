@@ -150,7 +150,7 @@ startGame.addEventListener("click", setTime);
 
 startGame.addEventListener("click", runQuestions);
 
-//hides form, hides questions, shows highscores
+//hides form, hides questions, shows score
 function endGame (){
   highScores();
   showOrHideForm();  
