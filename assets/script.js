@@ -9,7 +9,8 @@ var questionCounter= 0;
 availableQuestions=[];
 var scoreDisplay = document.getElementById("score-display");
 var submitEl = document.querySelector(".submit");
-var showScore = document.getElementById("displayScore");
+var showScore = document.getElementById("display-highscore");
+
 
 
 //Questions and answer array`
@@ -156,7 +157,7 @@ function endGame (){
   showOrHideForm();  
   showOrHideQuestions();
   showScore.textContent=("Your score is: " + score);
-}
+  }
 
 //stores scores
 function highScores(){
@@ -178,7 +179,7 @@ function highScores(){
       highScores.push(currentScore);
     
       localStorage.setItem("highScores", JSON.stringify(highScores));
-
+      
       showHighscores();
   })
 
@@ -188,15 +189,19 @@ function highScores(){
 
 function showHighscores (){
   showOrHideForm();
-  displayScore.createElement("ul");
+  var highScores = JSON.parse(localStorage.getItem("highScores"));
+  
+  var createHeader = document.createElement('h1');
+  createHeader.textContent = "Highscores";
+  showScore.appendChild(createHeader);
 
-}
-
-//clear highscores
-
-function clearHighscores (){
-  localStorage.clear();
-}
+  for (var i = 0; i < highScores.length; i++) {
+    
+    var createLi = document.createElement('li');
+    createLi.textContent = highScores[i].initials + " - " +highScores[i].score;
+    showScore.appendChild(createLi);
+  }
+};
 
 
 //Populates questions to the page
@@ -223,7 +228,7 @@ function getNewQuestion(){
   showOrHideForm();
   
 
-  }
+  } else {
 
   questionCounter++;
   var questionIndex = Math.floor(Math.random()* availableQuestions.length);
@@ -236,7 +241,7 @@ function getNewQuestion(){
   });
 
   availableQuestions.splice(questionIndex, 1);
-};
+}};
 
 //user clicks
 choices.forEach(choice => {
